@@ -1,0 +1,19 @@
+The project is degined to be compiled with the makefile include.  
+No arguments are needed, just type "make".
+
+Alternatively, the project files can be compiled individually with the following steps:
+	g++ -c -std=c++11 KV_converter.cpp
+	g++ -c -std=c++11 main.cpp
+	g++ -o converter KV_converter.o main.o
+	
+Sucsessful compilation will yeild an executable called "converter."
+This executable takes one argument, the name of the conversion table
+to be loaded, including the file extension.  
+In this case, it is "DT670_conversion.tbl"
+
+eg: ./converter DT670_conversion.tbl
+
+All output is displayed in the terminal window.
+
+Enjoy,
+Matthew Gerton

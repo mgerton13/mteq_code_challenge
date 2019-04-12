@@ -13,15 +13,19 @@ int main(int argc, char *argv[])
 
 	try
 	{
+		std::cout << "\n\n*-------------------------------------------------------------------*\n";
+
 		KV_converter converter1(calibration_file);
-		
+
+		std::cout << "\n*-------------------------------------------------------------------*\n";
+
 		for(int a = 0; a < Vvalues.size(); a++)
 		{
 			convertedVs[a] = converter1.convertVtoK(Vvalues[a]);
 			std::cout << Vvalues[a] << " mV = " << convertedVs[a] << " *K" << std::endl;
 			
 			if((Vvalues[a] > VMAX) || (Vvalues[a] < VMIN))
-				std::cout << "Voltage value given for conversion falls outside give range for the cooler controller.\nConverted Kelvin temperature returned is an estimate.\n";
+				std::cout << "\nVoltage value given for conversion falls outside give range for\n\tthe cooler controller.\nConverted Kelvin temperature returned is an estimate.\n";
 			
 			std::cout << "\n*-------------------------------------------------------------------*\n";
 		}
@@ -32,7 +36,7 @@ int main(int argc, char *argv[])
 			std::cout << Kvalues[a] << " *K = " << convertedKs[a] << " mV" << std::endl;
 			
 			if((Kvalues[a] > KMAX) || (Kvalues[a] < KMIN))
-				std::cout << "Kelvin temperature given for conversion falls outside give range for the cooler controller.\nConverted voltage value returned is an estimate.\n";
+				std::cout << "\nKelvin temperature given for conversion falls outside give range for\n\tthe cooler controller.\nConverted voltage value returned is an estimate.\n";
 		
 			std::cout << "\n*-------------------------------------------------------------------*\n";
 		}
@@ -42,8 +46,6 @@ int main(int argc, char *argv[])
 		std::cout << error << std::endl;
 		return 0;
 	}
-	
-
 	
 	return 1;
 }
